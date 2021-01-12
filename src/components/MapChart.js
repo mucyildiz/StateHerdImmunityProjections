@@ -13,7 +13,7 @@ const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 const MapChart = ({ setTooltipContent }) => {
   return (
     <div id="map-container">
-      <ComposableMap projection="geoAlbersUsa">
+      <ComposableMap data-tip="" projection="geoAlbersUsa">
         <ZoomableGroup>
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
