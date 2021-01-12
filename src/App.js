@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import ReactTooltip from "react-tooltip";
 import { Container } from '@material-ui/core'
+import axios from 'axios';
 
 import './App.css';
 
 import MapChart from './components/MapChart';
+
+import Info from './components/Info';
 
 function App() {
   const [content, setContent] = useState("");
@@ -16,7 +18,7 @@ function App() {
         </div>
         </Container>
         <div id="info">
-          <ReactTooltip>{content ? content : "Hover over a state to see the projected herd immunity date."}</ReactTooltip>
+          <Info content={content}></Info>
         </div>
     </div>
   );
