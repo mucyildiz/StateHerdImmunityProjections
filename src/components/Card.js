@@ -35,6 +35,7 @@ const useStyles = makeStyles({
 export default function OutlinedCard(props) {
   const classes = useStyles();
 
+  //https://www.w3resource.com/javascript-exercises/javascript-date-exercise-47.php
   const diff_weeks = (dt2, dt1) => {
     var diff =(dt2.getTime() - dt1.getTime()) / 1000;
     diff /= (60 * 60 * 24 * 7);
@@ -47,9 +48,9 @@ export default function OutlinedCard(props) {
       const statePopulation = props.immunizationData.population;
       let weeklyDoses = props.immunizationData['v-diff-7'];
 
-      // to avoid dividing by 0, if no weekly doses were given (likely a data entry error) then we calculate avg weekly doses from dec. 14(first vaccine) til now
+      // to avoid dividing by 0, if no weekly doses were given (probably a data entry error) then we calculate avg weekly doses from dec. 21(week after first vaccine) til now
       if(Number(weeklyDoses) === 0){
-          const firstVaccinationDate = new Date('December 14, 2020');
+          const firstVaccinationDate = new Date('December 21, 2020');
           const now = new Date();
           const num_weeks = diff_weeks(now, firstVaccinationDate);
           weeklyDoses = currentVaccinated / num_weeks;
@@ -61,12 +62,14 @@ export default function OutlinedCard(props) {
       const remaining = herdImmunityNumber - currentVaccinated;
       const numWeeks = remaining / weeklyDoses;
 
+      const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
       let date = new Date();
       date.setDate(date.getDate() + numWeeks * 7);
-      const month = date.getMonth();
-      const day = date.getDay();
+      const month = months[date.getMonth()];
+      const day = date.getDay() + 1;
       const year = date.getFullYear();
-      return month + " " + day + " " + year;
+      return month + " " + day + ", " + year + ".";
   }
 
   return (
