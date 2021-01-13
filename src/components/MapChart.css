@@ -1,4 +1,6 @@
 #map-container{
-    max-height: 100%;
-    max-width: 50%;
+    position: relative;
+    height: calc(100% - 55px);
+    width: 70%;
+    margin: 0 auto;
 }

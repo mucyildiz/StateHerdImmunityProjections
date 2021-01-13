@@ -1,14 +1,13 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ReactTooltip from "react-tooltip";
 import Card from './Card';
+import './Info.css';
 
 const immunizationStatsURL = '/projects/20201221-plan-your-shot-map/data/plan-your-shot.json';
-const covidStatsURL = 'https://api.covidtracking.com/v1/states/current.json';
 
 const Info = (props) => {
     const [immunizationData, setImmunizationData] = useState([]);
-    const [covidData, setCovidData] = useState([]);
     const [loading, setLoading] = useState(true);
     
     useEffect(() => {
@@ -16,8 +15,6 @@ const Info = (props) => {
         const fetchData = async () => {
             const immunizationDataRes = await axios.get(immunizationStatsURL);
             setImmunizationData([...immunizationDataRes.data]);
-            const covidDataRes = await axios.get(covidStatsURL);
-            setCovidData([...covidDataRes.data]);
             setLoading(false);
         }
         fetchData();
@@ -31,24 +28,17 @@ const Info = (props) => {
         return result[0];
     }
 
-    const getStateCovidData = (desiredState) => {
-        if(!desiredState){
-            return;
-        }
-        const hoveredState = getStateImmunizationData(desiredState);
-        const result = covidData.filter(obj => obj.state === hoveredState.abbr);
-        return result[0];
-    }
-
     //props.content sent down to contentAvailable, if we hover over a state props.content is truthy else falsy
     //stateData will be object containing vaccination and infection data about the hovered over state
     const renderCard = (contentAvailable, stateImmunizationData, stateCovidData) => {
         if(contentAvailable){
             return (
-                <ReactTooltip>
-                    <Card content={props.content} immunizationData={stateImmunizationData} covidData={stateCovidData}>
-                    </Card>
-                </ReactTooltip>
+                <div className="customTooltip">
+                    <ReactTooltip className="tooltip">
+                        <Card content={props.content} immunizationData={stateImmunizationData}>
+                        </Card>
+                    </ReactTooltip>
+                </div>
             )
         }
         return;
@@ -56,7 +46,7 @@ const Info = (props) => {
 
     return (
         <div id="parent">
-            {loading ? "" : renderCard(props.content, getStateImmunizationData(props.content), getStateCovidData(props.content))}
+            {loading ? "" : renderCard(props.content, getStateImmunizationData(props.content))}
         </div>
     )
 }

@@ -1,9 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Grid } from '@material-ui/core';
 
@@ -21,6 +19,7 @@ const useStyles = makeStyles({
   },
   info: {
       fontSize: 16,
+      textAlign: "center",
   },
   statsContainer: {
       marginTop: 12,
@@ -89,7 +88,7 @@ export default function OutlinedCard(props) {
             </Grid>
             <Grid item xs={6} className={classes.stat}>
                 <Typography component="h3" style={{maxWidth: 100, fontWeight: "bold"}}>
-                    Infected {props.covidData.positive}
+                    Population {props.immunizationData.population}
                 </Typography>
             </Grid>
             <Grid item xs={12} className={classes.stat}>

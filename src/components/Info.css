@@ -1,0 +1,6 @@
+.customTooltip .__react_component_tooltip.place-top{
+    margin-top:0 !important;
+}
+.customTooltip .__react_component_tooltip.type-dark{
+    background-color: transparent;
+}
