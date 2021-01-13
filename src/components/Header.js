@@ -9,7 +9,7 @@ const Header = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav"/>
             <Navbar.Collapse id="basic-navbar-nav" >
                 <Nav className="ml-auto" id="tabs">
-                <Nav.Link href="#map">Map</Nav.Link>
+                <Nav.Link href="#map-container">Map</Nav.Link>
                 <Nav.Link href="#methods">Methods</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
