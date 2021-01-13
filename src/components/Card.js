@@ -27,6 +27,8 @@ const useStyles = makeStyles({
   },
   stat: {
       textAlign: "center",
+      display: "flex",
+      flexDirection: "column",
   }
 });
 
@@ -44,17 +46,22 @@ export default function OutlinedCard(props) {
         </Typography>
         <Grid container spacing={3} className={classes.statsContainer}>
             <Grid item xs={6} className={classes.stat}>
-                <Typography component="h3">
-                    Total Vaccinations: {props.immunizationData.vaccinated}
+                <Typography component="h3" style={{fontWeight: "bold"}}>
+                    Vaccinated {props.immunizationData['doses-number']}
                 </Typography>
             </Grid>
             <Grid item xs={6} className={classes.stat}>
-                <Typography component="h3">
-                    Total infected: {props.covidData.positive}
+                <Typography component="h3" style={{maxWidth: 100, fontWeight: "bold"}}>
+                    Infected {props.covidData.positive}
                 </Typography>
             </Grid>
             <Grid item xs={12} className={classes.stat}>
-                Test
+                <Typography component="h3" style={{fontWeight: "bold"}}>
+                    Percent Vaccinated 
+                </Typography>
+                <Typography component="h3" style={{fontWeight: "bold"}}>
+                    {props.immunizationData['pct-vaccinated']}
+                </Typography>
             </Grid>
         </Grid>
       </CardContent>
