@@ -7,4 +7,11 @@ module.exports = function (app) {
       changeOrigin: true
     })
   );
+  app.use(
+    "/v1/us/current.json",
+    createProxyMiddleware({
+      target: "https://api.covidtracking.com",
+      changeOrigin: true
+    })
+  );
 };

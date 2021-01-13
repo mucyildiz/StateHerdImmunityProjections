@@ -3,24 +3,28 @@ import axios from 'axios';
 import ReactTooltip from "react-tooltip";
 import Card from './Card';
 
-const immunizationStatsURL = '/projects/20201221-plan-your-shot-map/data/plan-your-shot.json'
+const immunizationStatsURL = '/projects/20201221-plan-your-shot-map/data/plan-your-shot.json';
+const covidStatsURL = 'https://api.covidtracking.com/v1/states/current.json';
 
 const Info = (props) => {
-    const [data, setData] = useState([]);
+    const [immunizationData, setImmunizationData] = useState([]);
+    const [covidData, setCovidData] = useState([]);
     const [loading, setLoading] = useState(true);
     
     useEffect(() => {
         setLoading(true);
         const fetchData = async () => {
-            const res = await axios.get(immunizationStatsURL);
-            setData([...res.data]);
+            const immunizationDataRes = await axios.get(immunizationStatsURL);
+            setImmunizationData([...immunizationDataRes.data]);
+            const covidDataRes = await axios.get(covidStatsURL);
+            setCovidData([...covidDataRes.data]);
             setLoading(false);
         }
         fetchData();
     }, [])
 
     const getStateData = (desiredState) => {
-        const result = data.filter(obj => obj.state === desiredState);
+        const result = immunizationData.filter(obj => obj.state === desiredState);
         return result[0];
     }
 
