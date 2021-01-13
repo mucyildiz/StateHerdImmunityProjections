@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Container } from '@material-ui/core'
-import axios from 'axios';
 
 import './App.css';
 

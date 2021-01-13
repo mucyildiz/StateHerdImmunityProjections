@@ -9,13 +9,18 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
+    maxWidth: 300,
   },
   title: {
-    fontSize: 14,
+    fontSize: 22,
+    textAlign: "center",
   },
   pos: {
     marginBottom: 12,
   },
+  info: {
+      fontSize: 16,
+  }
 });
 
 export default function OutlinedCard(props) {
@@ -24,24 +29,13 @@ export default function OutlinedCard(props) {
   return (
     <Card className={classes.root} variant="outlined">
       <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
+        <Typography className={classes.title} gutterBottom>
             {props.content}
         </Typography>
-        <Typography variant="h5" component="h2">
-            {props.data.state}
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          adjective
-        </Typography>
-        <Typography variant="body2" component="p">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
+        <Typography className={classes.info} variant="h5" component="h2">
+            {props.data.state} is expected to achieve herd immunity around May 27, 2021.
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
     </Card>
   );
 }
