@@ -1,0 +1,30 @@
+const votedForTrump = [
+    "Texas",
+    "Florida",
+    "Ohio",
+    "North Carolina",
+    "Indiana",
+    "Tennessee",
+    "Missouri",
+    "Alabama",
+    "South Carolina",
+    "Kentucky",
+    "Louisiana",
+    "Oklahoma",
+    "Mississippi",
+    "Iowa",
+    "Arkansas",
+    "Kansas",
+    "Utah",
+    "West Virginia",
+    "Idaho",
+    "Nebraska",
+    "Alaska",
+    "Montana",
+    "North Dakota",
+    "South Dakota",
+    "Wyoming",
+    "Maine"
+]
+
+export default votedForTrump;

@@ -5,16 +5,20 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { Grid } from '@material-ui/core';
 
+import votedForTrump from '../data/electionResults';
+
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
     maxWidth: 300,
-    backgroundColor: "#00308F",
-    color: "white",
+    backgroundColor: "white",
+    color: "black",
   },
   title: {
     fontSize: 28,
     textAlign: "center",
+    fontWeight: 'bold',
+    color: "white"
   },
   pos: {
     marginBottom: 12,
@@ -73,14 +77,21 @@ export default function OutlinedCard(props) {
       return month + " " + day + ", " + year + ".";
   }
 
+  const renderBackgroundColor = (state) => {
+    if(votedForTrump.includes(state)){
+      return '#AA0000';
+    }
+    return '#00308F';
+  }
+
   return (
     <Card className={classes.root} variant="outlined">
       <CardContent>
-        <Typography className={classes.title} gutterBottom>
+        <Typography className={classes.title} gutterBottom style={{backgroundColor: renderBackgroundColor(props.content)}}>
             {props.content}
         </Typography>
         <Typography className={classes.info} variant="h5" component="h2">
-            {props.immunizationData.state} is expected to achieve herd immunity around {calculateImmunityDate()}
+            {props.content} is expected to achieve herd immunity around {calculateImmunityDate()}
         </Typography>
         <Grid container spacing={3} className={classes.statsContainer}>
             <Grid item xs={6} className={classes.stat}>
