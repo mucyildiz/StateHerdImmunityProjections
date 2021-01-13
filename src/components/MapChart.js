@@ -29,7 +29,9 @@ const MapChart = ({ setTooltipContent }) => {
                 style={{
                 default: {
                     fill: "#D6D6DA",
-                    outline: "none"
+                    outline: "none",
+                    stroke: "black",
+                    strokeWidth: .5,
                 },
                 hover: {
                     fill: "#F53",

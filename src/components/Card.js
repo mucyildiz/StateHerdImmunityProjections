@@ -9,6 +9,8 @@ const useStyles = makeStyles({
   root: {
     minWidth: 275,
     maxWidth: 300,
+    backgroundColor: "#00308F",
+    color: "white",
   },
   title: {
     fontSize: 28,
