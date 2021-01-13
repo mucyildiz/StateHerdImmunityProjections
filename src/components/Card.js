@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     maxWidth: 300,
   },
   title: {
-    fontSize: 22,
+    fontSize: 28,
     textAlign: "center",
   },
   pos: {
@@ -35,6 +35,40 @@ const useStyles = makeStyles({
 export default function OutlinedCard(props) {
   const classes = useStyles();
 
+  const diff_weeks = (dt2, dt1) => {
+    var diff =(dt2.getTime() - dt1.getTime()) / 1000;
+    diff /= (60 * 60 * 24 * 7);
+    return Math.abs(Math.round(diff));
+  }
+
+  const calculateImmunityDate = () => {
+      // take commas out of string and convert to Number
+      const currentVaccinated = props.immunizationData['doses-number'];
+      const statePopulation = props.immunizationData.population;
+      let weeklyDoses = props.immunizationData['v-diff-7'];
+
+      // to avoid dividing by 0, if no weekly doses were given (likely a data entry error) then we calculate avg weekly doses from dec. 14(first vaccine) til now
+      if(Number(weeklyDoses) === 0){
+          const firstVaccinationDate = new Date('December 14, 2020');
+          const now = new Date();
+          const num_weeks = diff_weeks(now, firstVaccinationDate);
+          weeklyDoses = currentVaccinated / num_weeks;
+      }
+
+      const population = Number(statePopulation.replace(/,/g, ""));
+
+      const herdImmunityNumber = population * .7;
+      const remaining = herdImmunityNumber - currentVaccinated;
+      const numWeeks = remaining / weeklyDoses;
+
+      let date = new Date();
+      date.setDate(date.getDate() + numWeeks * 7);
+      const month = date.getMonth();
+      const day = date.getDay();
+      const year = date.getFullYear();
+      return month + " " + day + " " + year;
+  }
+
   return (
     <Card className={classes.root} variant="outlined">
       <CardContent>
@@ -42,7 +76,7 @@ export default function OutlinedCard(props) {
             {props.content}
         </Typography>
         <Typography className={classes.info} variant="h5" component="h2">
-            {props.immunizationData.state} is expected to achieve herd immunity around May 27, 2021.
+            {props.immunizationData.state} is expected to achieve herd immunity around {calculateImmunityDate()}
         </Typography>
         <Grid container spacing={3} className={classes.statsContainer}>
             <Grid item xs={6} className={classes.stat}>
