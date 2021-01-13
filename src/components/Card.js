@@ -48,10 +48,11 @@ export default function OutlinedCard(props) {
   }
 
   const calculateImmunityDate = () => {
-      // take commas out of string and convert to Number
-      const currentVaccinated = props.immunizationData['doses-number'];
+
+      // we account for the 95% immunity rate of the vaccine by multiplying the num of currentVaccinated and weeklyDoses by .95
+      const currentVaccinated = Math.round(props.immunizationData['doses-number'] * .95);
       const statePopulation = props.immunizationData.population;
-      let weeklyDoses = props.immunizationData['v-diff-7'];
+      let weeklyDoses = Math.round(props.immunizationData['v-diff-7'] * .95);
 
       // to avoid dividing by 0, if no weekly doses were given (probably a data entry error) then we calculate avg weekly doses from dec. 21(week after first vaccine) til now
       if(Number(weeklyDoses) === 0){

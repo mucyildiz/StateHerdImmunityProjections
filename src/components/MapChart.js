@@ -12,6 +12,9 @@ const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 const MapChart = ({ setTooltipContent }) => {
   return (
     <div id="map-container">
+      <div id="message">
+        Hover over a state to see projected herd immunity date.
+      </div>
       <ComposableMap data-tip="" projection="geoAlbersUsa">
         <Geographies geography={geoUrl}>
         {({ geographies }) =>

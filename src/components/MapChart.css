@@ -1,7 +1,14 @@
 #map-container{
     position: relative;
-    height: calc(100% - 55px);
-    min-width: 70%;
-    width: 70%;
+    height: calc(100% - 75px);
+    min-width: 60%;
+    width: 60%;
     margin: 0 auto;
+    padding-top: 175px;
+    padding-bottom: 50px;
+}
+
+#message{
+    text-align: center;
+    font-size: 18px;
 }

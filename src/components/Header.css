@@ -1,16 +1,27 @@
-#container {
-    position: relative;
-    background-color: #13274F;
-    color: white;
-    width: 100%;
-    height: 55px;
-    text-align: left;
-    line-height: 55px;
-    font-size: 2em;
-}
-
 #content {
-    color: white;
+    color: black;
     font-size: 40px;
     margin-left: 15px;
+    font-family: 'Crimson Text', serif;
+}
+
+/* https://www.w3schools.com/howto/howto_js_navbar_shrink_scroll.asp */
+#navbar {
+    overflow: hidden;
+    padding: 40px 10px; /* Large padding which will shrink on scroll (using JS) */
+    transition: 0.4s; /* Adds a transition effect when the padding is decreased */
+    position: fixed; /* Sticky/fixed navbar */
+    width: 100%;
+    top: 0; /* At the top */
+    z-index: 99;
+    background-color: #2c3e50;
+}
+
+#tabs{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#title{
+    font-weight: bold;
 }
