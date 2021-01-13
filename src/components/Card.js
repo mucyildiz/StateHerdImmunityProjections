@@ -40,16 +40,18 @@ export default function OutlinedCard(props) {
             {props.content}
         </Typography>
         <Typography className={classes.info} variant="h5" component="h2">
-            {props.data.state} is expected to achieve herd immunity around May 27, 2021.
+            {props.immunizationData.state} is expected to achieve herd immunity around May 27, 2021.
         </Typography>
         <Grid container spacing={3} className={classes.statsContainer}>
             <Grid item xs={6} className={classes.stat}>
                 <Typography component="h3">
-                    Total Vaccinations: {props.data.vaccinated}
+                    Total Vaccinations: {props.immunizationData.vaccinated}
                 </Typography>
             </Grid>
             <Grid item xs={6} className={classes.stat}>
-                Test
+                <Typography component="h3">
+                    Total infected: {props.covidData.positive}
+                </Typography>
             </Grid>
             <Grid item xs={12} className={classes.stat}>
                 Test

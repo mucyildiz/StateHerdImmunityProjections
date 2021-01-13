@@ -23,18 +23,30 @@ const Info = (props) => {
         fetchData();
     }, [])
 
-    const getStateData = (desiredState) => {
+    const getStateImmunizationData = (desiredState) => {
+        if(!desiredState){
+            return;
+        }
         const result = immunizationData.filter(obj => obj.state === desiredState);
+        return result[0];
+    }
+
+    const getStateCovidData = (desiredState) => {
+        if(!desiredState){
+            return;
+        }
+        const hoveredState = getStateImmunizationData(desiredState);
+        const result = covidData.filter(obj => obj.state === hoveredState.abbr);
         return result[0];
     }
 
     //props.content sent down to contentAvailable, if we hover over a state props.content is truthy else falsy
     //stateData will be object containing vaccination and infection data about the hovered over state
-    const renderCard = (contentAvailable, stateData) => {
+    const renderCard = (contentAvailable, stateImmunizationData, stateCovidData) => {
         if(contentAvailable){
             return (
                 <ReactTooltip>
-                    <Card content={props.content} data={stateData}>
+                    <Card content={props.content} immunizationData={stateImmunizationData} covidData={stateCovidData}>
                     </Card>
                 </ReactTooltip>
             )
@@ -44,7 +56,7 @@ const Info = (props) => {
 
     return (
         <div id="parent">
-            {loading ? "" : renderCard(props.content, getStateData(props.content))}
+            {loading ? "" : renderCard(props.content, getStateImmunizationData(props.content), getStateCovidData(props.content))}
         </div>
     )
 }
