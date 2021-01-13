@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.css';
-import { Navbar, Nav, Button } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 
 const Header = () => {
     return (
@@ -9,8 +9,8 @@ const Header = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav"/>
             <Navbar.Collapse id="basic-navbar-nav" >
                 <Nav className="ml-auto" id="tabs">
-                <Nav.Link>Map</Nav.Link>
-                <Nav.Link>Methods</Nav.Link>
+                <Nav.Link href="#map">Map</Nav.Link>
+                <Nav.Link href="#methods">Methods</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

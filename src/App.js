@@ -13,10 +13,10 @@ import Footer from './components/Footer';
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
-  if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
-    document.getElementById("navbar").style.padding = "15px 10px";
+  if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+    document.getElementById("navbar").style.padding = "5px 10px";
   } else {
-    document.getElementById("navbar").style.padding = "40px 10px";
+    document.getElementById("navbar").style.padding = "30px 10px";
   }
 }
 
@@ -25,11 +25,13 @@ function App() {
   return (
     <div id="app">
       <Header />
-      <div id="map">
+      <div id="map" name="map">
         <MapChart setTooltipContent={setContent} />
         <Info content={content} />
       </div>
-      <Methods />
+      <div id="methods">
+        <Methods/>
+      </div>
       <Footer />
     </div>
   );
