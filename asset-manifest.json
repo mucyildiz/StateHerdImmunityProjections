@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/StateHerdImmunityProjections/static/css/main.23ce0bde.chunk.css",
-    "main.js": "/StateHerdImmunityProjections/static/js/main.8825b600.chunk.js",
-    "main.js.map": "/StateHerdImmunityProjections/static/js/main.8825b600.chunk.js.map",
+    "main.js": "/StateHerdImmunityProjections/static/js/main.cee0d693.chunk.js",
+    "main.js.map": "/StateHerdImmunityProjections/static/js/main.cee0d693.chunk.js.map",
     "runtime-main.js": "/StateHerdImmunityProjections/static/js/runtime-main.88ab476e.js",
     "runtime-main.js.map": "/StateHerdImmunityProjections/static/js/runtime-main.88ab476e.js.map",
     "static/css/2.1f208231.chunk.css": "/StateHerdImmunityProjections/static/css/2.1f208231.chunk.css",
@@ -18,6 +18,6 @@
     "static/css/2.1f208231.chunk.css",
     "static/js/2.c74a9829.chunk.js",
     "static/css/main.23ce0bde.chunk.css",
-    "static/js/main.8825b600.chunk.js"
+    "static/js/main.cee0d693.chunk.js"
   ]
 }
