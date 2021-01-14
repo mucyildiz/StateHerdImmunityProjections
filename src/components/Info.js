@@ -4,7 +4,7 @@ import ReactTooltip from "react-tooltip";
 import Card from './Card';
 import './Info.css';
 
-const immunizationStatsURL = '/projects/20201221-plan-your-shot-map/data/plan-your-shot.json';
+const immunizationStatsURL = 'https://dataviz.nbcnews.com/projects/20201221-plan-your-shot-map/data/plan-your-shot.json';
 
 const Info = (props) => {
     const [immunizationData, setImmunizationData] = useState([]);
