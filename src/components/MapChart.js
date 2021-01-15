@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from 'react-bootstrap';
 import {
     ComposableMap,
     Geographies,
@@ -9,12 +10,18 @@ import "./MapChart.css"
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 
-const MapChart = ({ setTooltipContent }) => {
+const MapChart = (props) => {
   return (
     <div id="map-container">
       <div id="message">
         Hover over a state to see projected herd immunity date.
       </div>
+      <div id="toggle-table">
+        <Button style={{backgroundColor: '#2c3e50', color: 'white'}} onClick={props.buttonClick}>
+          {props.showMap ? "View Table" : "View Map"}
+        </Button>
+      </div>
+      {props.showMap ?
       <ComposableMap data-tip="" projection="geoAlbersUsa">
         <Geographies geography={geoUrl}>
         {({ geographies }) =>
@@ -24,10 +31,10 @@ const MapChart = ({ setTooltipContent }) => {
                 key={geo.rsmKey}
                 geography={geo}
                 onMouseEnter={() => {
-                setTooltipContent(geo.properties.name);
+                props.setTooltipContent(geo.properties.name);
                 }}
                 onMouseLeave={() => {
-                setTooltipContent("");
+                props.setTooltipContent("");
                 }}
                 style={{
                 default: {
@@ -50,6 +57,7 @@ const MapChart = ({ setTooltipContent }) => {
         }
         </Geographies>
       </ComposableMap>
+      : ""}
     </div>
   );
 };

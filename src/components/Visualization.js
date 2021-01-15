@@ -1,21 +1,26 @@
-import React from 'react';
-import { Button } from 'react-bootstrap';
+import React, { useState } from 'react';
 import MapChart from './MapChart';
 import Info from './Info';
+import Table from './Table';
 
 const Visualization = (props) => {
+    const [tableShown, setTableShown] = useState(true);
+
+    const handleClick = () => {
+        setTableShown(!tableShown);
+        console.log(tableShown);
+    }
+
     return (
-        <>
-        <Button>Yeah yeah</Button>
-        <div id="map" name="map">
-        {props.loading ? "" : 
-        <div>
-          <MapChart setTooltipContent={props.setContent} />
-          <Info data={props.data} content={props.content} /> 
+        <div id='vis-container'>
+            {props.loading ? "" : 
+            <div>
+            <MapChart setTooltipContent={props.setContent} buttonClick={handleClick} showMap={!tableShown}/>
+            <Info data={props.data} content={props.content} /> 
+            </div>
+            }
+            {tableShown ? <Table /> : ""}
         </div>
-        }
-        </div>
-        </>
     )
 }
 
