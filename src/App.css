@@ -4,3 +4,8 @@ svg {
     display: inline-block;
     vertical-align: middle;
   }
+
+#app{
+  display: flex;
+  flex-direction: column;
+}

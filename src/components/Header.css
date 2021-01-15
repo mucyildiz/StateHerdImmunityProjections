@@ -25,3 +25,9 @@
 #title{
     font-weight: bold;
 }
+
+/* is behind navbar so we can have our map container be properly underneath header */
+#dummy-header {
+    width: 100%;
+    height: 105.6px;
+}

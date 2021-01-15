@@ -4,6 +4,8 @@ import { Navbar, Nav } from 'react-bootstrap';
 
 const Header = () => {
     return (
+        <>
+        <div id="dummy-header"></div>
         <Navbar id="navbar" variant="dark" expand="lg" className="fixed-top navbar-expand">
             <Navbar.Brand id="title">COVID-19 Herd Immunity Projections</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav"/>
@@ -14,6 +16,7 @@ const Header = () => {
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
+        </>
     )
 }
 

@@ -47,6 +47,7 @@ function App() {
           <Info data={immunizationData} content={content} /> 
         </div>
         }
+
       </div>
       <div id="methods">
         <Methods/>
