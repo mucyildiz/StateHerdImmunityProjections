@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import MapChart from './MapChart';
 import Info from './Info';
-import Table from './Table';
+import DataTable from './Table';
 
 const Visualization = (props) => {
     const [tableShown, setTableShown] = useState(true);
@@ -19,7 +19,7 @@ const Visualization = (props) => {
             <Info data={props.data} content={props.content} /> 
             </div>
             }
-            {tableShown ? <Table /> : ""}
+            {tableShown ? <DataTable data={props.data} /> : ""}
         </div>
     )
 }
