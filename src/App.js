@@ -8,6 +8,7 @@ import Info from './components/Info';
 import Header from './components/Header';
 import Methods from './components/Methods';
 import Footer from './components/Footer';
+import Visualization from './components/Visualization';
 
 import keys from './config/keys';
 
@@ -40,15 +41,7 @@ function App() {
   return (
     <div id="app">
       <Header />
-      <div id="map" name="map">
-        {loading ? "" : 
-        <div>
-          <MapChart setTooltipContent={setContent} />
-          <Info data={immunizationData} content={content} /> 
-        </div>
-        }
-
-      </div>
+      <Visualization setContent={setContent} loading={loading} data={immunizationData} content={content} />
       <div id="methods">
         <Methods/>
       </div>
