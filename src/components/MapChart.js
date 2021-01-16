@@ -14,7 +14,7 @@ const MapChart = (props) => {
   return (
     <div id="map-container">
       <div id="message">
-        Hover over a state to see projected herd immunity date.
+        {props.showMap ? "Hover over a state to see projected herd immunity date." : "Click on header titles to sort by attributes."}
       </div>
       <div id="toggle-table">
         <Button style={{backgroundColor: '#2c3e50', color: 'white'}} onClick={props.buttonClick}>
