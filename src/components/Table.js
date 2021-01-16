@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Table.css';
+import { calculateImmunityDate } from '../data/computations';
+
 
 const numberWithCommas = (x) => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -17,9 +19,10 @@ const DataTable = (props) => {
         states: true,
         vaccinations: false,
         population: false,
-        percent: false
+        percent: false,
+        date: false
     })
-    const header = ["State", "Vaccinations", "Population", "Pct. Vaccinated"];
+    const header = ["State", "Vaccinations", "Population", "Pct. Vaccinated", "Projected Date"];
 
     useEffect(() => {
         setImmunizationData(props.data);
@@ -31,33 +34,44 @@ const DataTable = (props) => {
             case header[1]:
                 if(!inDescendingOrder.vaccinations){
                     setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => stateTwo['doses-number'] - stateOne['doses-number']));
-                    setInDescendingOrder( {states: false, vaccinations: true, population: false, percent: false });
+                    setInDescendingOrder( {states: false, vaccinations: true, population: false, percent: false, date: false });
                 }
                 else{
                     setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => -1 * (stateTwo['doses-number'] - stateOne['doses-number'])));
-                    setInDescendingOrder( {states: false, vaccinations: false, population: false, percent: false });
+                    setInDescendingOrder( {states: false, vaccinations: false, population: false, percent: false, date: false });
                 }
                 break;
 
             case header[2]:
                 if(!inDescendingOrder.population){
                     setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => numberWithoutCommas(stateTwo.population) - numberWithoutCommas(stateOne.population)));
-                    setInDescendingOrder( {states: false, vaccinations: false, population: true, percent: false });
+                    setInDescendingOrder( {states: false, vaccinations: false, population: true, percent: false, date: false });
                 }
                 else{
                     setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => -1 * (numberWithoutCommas(stateTwo.population) - numberWithoutCommas(stateOne.population))));
-                    setInDescendingOrder( {states: false, vaccinations: false, population: false, percent: false });
+                    setInDescendingOrder( {states: false, vaccinations: false, population: false, percent: false, date: false });
                 }
                 break;
 
             case header[3]:
                 if(!inDescendingOrder.percent){
                     setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => stateTwo.vaccinated - stateOne.vaccinated));
-                    setInDescendingOrder( {states: false, vaccinations: false, population: false, percent: true });
+                    setInDescendingOrder( {states: false, vaccinations: false, population: false, percent: true, date: false });
                 }
                 else{
                     setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => -1 * (stateTwo.vaccinated - stateOne.vaccinated)));
-                    setInDescendingOrder( {states: false, vaccinations: false, population: false, percent: false });
+                    setInDescendingOrder( {states: false, vaccinations: false, population: false, percent: false, date: false });
+                }
+                break;
+
+            case header[4]:
+                if(!inDescendingOrder.date){
+                    setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => calculateImmunityDate(stateTwo).date - calculateImmunityDate(stateOne).date));
+                    setInDescendingOrder( {states: false, vaccinations: false, population: false, percent: false, date: true });
+                }
+                else{
+                    setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => -1 * (calculateImmunityDate(stateTwo).date - calculateImmunityDate(stateOne).date)));
+                    setInDescendingOrder( {states: false, vaccinations: false, population: false, percent: false, date: false });
                 }
                 break;
 
@@ -68,7 +82,7 @@ const DataTable = (props) => {
                         const textB = stateTwo.state.toUpperCase();
                         return (textA < textB ? -1 : (textA > textB) ? 1: 0);
                     }));
-                    setInDescendingOrder( {states: true, vaccinations: false, population: false, percent: false });
+                    setInDescendingOrder( {states: true, vaccinations: false, population: false, percent: false, date: false });
                 }
                 else{
                     setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => {
@@ -76,7 +90,7 @@ const DataTable = (props) => {
                         const textB = stateTwo.state.toUpperCase();
                         return (textA > textB ? -1 : (textA < textB) ? 1: 0);
                     }));
-                    setInDescendingOrder( {states: false, vaccinations: false, population: false, percent: false });
+                    setInDescendingOrder( {states: false, vaccinations: false, population: false, percent: false, date: false });
                 }
                 break;
         }
@@ -109,6 +123,7 @@ const DataTable = (props) => {
                         <td>{numberWithCommas(state['doses-number'])}</td>
                         <td>{state.population}</td>
                         <td>{calcPercentage(state)}</td>
+                        <td>{calculateImmunityDate(state).stringDate}</td>
                         </tr>
                     );
                     })}
