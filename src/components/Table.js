@@ -28,8 +28,7 @@ const DataTable = (props) => {
         setImmunizationData(props.data);
     }, [props.data])
 
-    //'doses-number'
-    const setData = (attribute, ascending, date=false) => {
+    const setData = (attribute, ascending) => {
         if(ascending){
             setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => (numberWithoutCommas(stateTwo[attribute]) - numberWithoutCommas(stateOne[attribute]))));
         }
