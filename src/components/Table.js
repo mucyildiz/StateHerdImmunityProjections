@@ -13,6 +13,12 @@ const numberWithoutCommas = (x) => {
 const DataTable = (props) => {
     
     const [immunizationData, setImmunizationData ] = useState([]);
+    const [inDescendingOrder, setInDescendingOrder] = useState({
+        states: true,
+        vaccinations: false,
+        population: false,
+        percent: false
+    })
     const header = ["State", "Vaccinations", "Population", "Pct. Vaccinated"];
 
     useEffect(() => {
@@ -21,21 +27,57 @@ const DataTable = (props) => {
 
     const sortArray = (property) => {
         switch(property){
+
             case header[1]:
-                setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => stateTwo['doses-number'] - stateOne['doses-number']));
+                if(!inDescendingOrder.vaccinations){
+                    setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => stateTwo['doses-number'] - stateOne['doses-number']));
+                    setInDescendingOrder( {states: false, vaccinations: true, population: false, percent: false });
+                }
+                else{
+                    setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => -1 * (stateTwo['doses-number'] - stateOne['doses-number'])));
+                    setInDescendingOrder( {states: false, vaccinations: false, population: false, percent: false });
+                }
                 break;
+
             case header[2]:
-                setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => numberWithoutCommas(stateTwo.population) - numberWithoutCommas(stateOne.population)));
+                if(!inDescendingOrder.population){
+                    setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => numberWithoutCommas(stateTwo.population) - numberWithoutCommas(stateOne.population)));
+                    setInDescendingOrder( {states: false, vaccinations: false, population: true, percent: false });
+                }
+                else{
+                    setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => -1 * (numberWithoutCommas(stateTwo.population) - numberWithoutCommas(stateOne.population))));
+                    setInDescendingOrder( {states: false, vaccinations: false, population: false, percent: false });
+                }
                 break;
+
             case header[3]:
-                setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => stateTwo.vaccinated - stateOne.vaccinated));
+                if(!inDescendingOrder.percent){
+                    setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => stateTwo.vaccinated - stateOne.vaccinated));
+                    setInDescendingOrder( {states: false, vaccinations: false, population: false, percent: true });
+                }
+                else{
+                    setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => -1 * (stateTwo.vaccinated - stateOne.vaccinated)));
+                    setInDescendingOrder( {states: false, vaccinations: false, population: false, percent: false });
+                }
                 break;
+
             default:
-                setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => {
-                    const textA = stateOne.state.toUpperCase();
-                    const textB = stateTwo.state.toUpperCase();
-                    return (textA < textB ? -1 : (textA > textB) ? 1: 0);
-                }));
+                if(!inDescendingOrder.states){
+                    setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => {
+                        const textA = stateOne.state.toUpperCase();
+                        const textB = stateTwo.state.toUpperCase();
+                        return (textA < textB ? -1 : (textA > textB) ? 1: 0);
+                    }));
+                    setInDescendingOrder( {states: true, vaccinations: false, population: false, percent: false });
+                }
+                else{
+                    setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => {
+                        const textA = stateOne.state.toUpperCase();
+                        const textB = stateTwo.state.toUpperCase();
+                        return (textA > textB ? -1 : (textA < textB) ? 1: 0);
+                    }));
+                    setInDescendingOrder( {states: false, vaccinations: false, population: false, percent: false });
+                }
                 break;
         }
     }
