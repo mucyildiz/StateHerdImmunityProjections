@@ -29,17 +29,13 @@ const DataTable = (props) => {
     }, [props.data])
 
     //'doses-number'
-    const setData = (attribute, ascending) => {
+    const setData = (attribute, ascending, date=false) => {
         if(ascending){
             setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => (numberWithoutCommas(stateTwo[attribute]) - numberWithoutCommas(stateOne[attribute]))));
         }
         else{
             setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => -1 * numberWithoutCommas(stateTwo[attribute]) - numberWithoutCommas(stateOne[attribute])));
         }
-    }
-
-    const setAllFalse = () => {
-        setInDescendingOrder({states: false, vaccinations: false, population: false, percent: false, date: false});
     }
 
     const sortArray = (property) => {

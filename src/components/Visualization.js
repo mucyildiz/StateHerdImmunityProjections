@@ -4,11 +4,10 @@ import Info from './Info';
 import DataTable from './Table';
 
 const Visualization = (props) => {
-    const [tableShown, setTableShown] = useState(true);
+    const [tableShown, setTableShown] = useState(false);
 
     const handleClick = () => {
         setTableShown(!tableShown);
-        console.log(tableShown);
     }
 
     return (

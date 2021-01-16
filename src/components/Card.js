@@ -40,7 +40,7 @@ const useStyles = makeStyles({
 
 export default function OutlinedCard(props) {
   const classes = useStyles();
-  
+
   const renderBackgroundColor = (state) => {
     if(votedForTrump.includes(state)){
       return '#AA0000';
@@ -60,7 +60,7 @@ export default function OutlinedCard(props) {
             {props.content}
         </Typography>
         <Typography className={classes.info} variant="h5" component="h2">
-            {props.content} is expected to achieve herd immunity around {calculateImmunityDate(props.immunizationData)}
+            {props.content} is expected to achieve herd immunity around {calculateImmunityDate(props.immunizationData).stringDate}
         </Typography>
         <Grid container spacing={3} className={classes.statsContainer}>
             <Grid item xs={6} className={classes.stat}>
