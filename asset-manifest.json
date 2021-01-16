@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/StateHerdImmunityProjections/static/css/main.2d306e4b.chunk.css",
+    "main.css": "/StateHerdImmunityProjections/static/css/main.59dcda1d.chunk.css",
     "main.js": "/StateHerdImmunityProjections/static/js/main.e3aa3ddb.chunk.js",
     "main.js.map": "/StateHerdImmunityProjections/static/js/main.e3aa3ddb.chunk.js.map",
     "runtime-main.js": "/StateHerdImmunityProjections/static/js/runtime-main.88ab476e.js",
@@ -10,14 +10,14 @@
     "static/js/2.39c88361.chunk.js.map": "/StateHerdImmunityProjections/static/js/2.39c88361.chunk.js.map",
     "index.html": "/StateHerdImmunityProjections/index.html",
     "static/css/2.1f208231.chunk.css.map": "/StateHerdImmunityProjections/static/css/2.1f208231.chunk.css.map",
-    "static/css/main.2d306e4b.chunk.css.map": "/StateHerdImmunityProjections/static/css/main.2d306e4b.chunk.css.map",
+    "static/css/main.59dcda1d.chunk.css.map": "/StateHerdImmunityProjections/static/css/main.59dcda1d.chunk.css.map",
     "static/js/2.39c88361.chunk.js.LICENSE.txt": "/StateHerdImmunityProjections/static/js/2.39c88361.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.88ab476e.js",
     "static/css/2.1f208231.chunk.css",
     "static/js/2.39c88361.chunk.js",
-    "static/css/main.2d306e4b.chunk.css",
+    "static/css/main.59dcda1d.chunk.css",
     "static/js/main.e3aa3ddb.chunk.js"
   ]
 }
