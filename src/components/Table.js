@@ -51,7 +51,12 @@ const DataTable = (props) => {
             <div id="table-container">
                 <table id="data-table">
                 <thead>
-                    <tr>{header.map((h, i) => <th onClick={() => {sortArray(h)}} key={i}>{h}</th>)}</tr>
+                    <tr>{header.map((h, i) => <th onClick={() => {sortArray(h)}} key={i}>
+                        <div className="header-item">
+                            {h}
+                        </div>
+                        </th>)}
+                    </tr>
                 </thead>
                 <tbody>
                     {Object.keys(immunizationData).map((k, i) => {

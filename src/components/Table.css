@@ -43,3 +43,8 @@
 #table-container {
     padding-bottom: 50px;
 }
+
+#data-table thead th:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
