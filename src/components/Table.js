@@ -33,7 +33,7 @@ const DataTable = (props) => {
             setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => (numberWithoutCommas(stateTwo[attribute]) - numberWithoutCommas(stateOne[attribute]))));
         }
         else{
-            setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => -1 * numberWithoutCommas(stateTwo[attribute]) - numberWithoutCommas(stateOne[attribute])));
+            setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => -1 * (numberWithoutCommas(stateTwo[attribute]) - numberWithoutCommas(stateOne[attribute]))));
         }
     }
 
