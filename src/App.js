@@ -3,8 +3,6 @@ import axios from 'axios';
 
 import './App.css';
 
-import MapChart from './components/MapChart';
-import Info from './components/Info';
 import Header from './components/Header';
 import Methods from './components/Methods';
 import Footer from './components/Footer';

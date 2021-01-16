@@ -15,7 +15,7 @@
 #data-table th,
 #data-table td {
     padding: 12px 25px;
-    width: 200px;
+    width: 149.28px;
     text-align: center;
 }
 
@@ -28,7 +28,7 @@
 
 
 #data-table tbody tr {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: thin solid #dddddd;
     display: block;
 }
 
@@ -47,4 +47,20 @@
 #data-table thead th:hover {
     background-color: rgba(255, 255, 255, 0.5);
     cursor: pointer;
+}
+
+@media(max-width: 600px){
+    #data-table th,
+    #data-table td {
+    width: 82.88px;
+    padding: 5px 10px;
+    font-size: 10px;
+    text-align: center;
+    }
+    #data-table tbody {
+        display: block;
+        overflow:auto;
+        height:200px;
+        width:100%;
+    }
 }

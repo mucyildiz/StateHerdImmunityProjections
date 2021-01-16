@@ -17,12 +17,12 @@ const MapChart = (props) => {
         {props.showMap ? "Hover over a state to see projected herd immunity date." : "Click on header titles to sort by attributes."}
       </div>
       <div id="toggle-table">
-        <Button style={{backgroundColor: '#2c3e50', color: 'white'}} onClick={props.buttonClick}>
+        <Button id="btn" style={{backgroundColor: '#2c3e50', color: 'white'}} onClick={props.buttonClick}>
           {props.showMap ? "View Table" : "View Map"}
         </Button>
       </div>
       {props.showMap ?
-      <ComposableMap data-tip="" projection="geoAlbersUsa">
+      <ComposableMap id="map" data-tip="" projection="geoAlbersUsa">
         <Geographies geography={geoUrl}>
         {({ geographies }) =>
             geographies.map(geo => {

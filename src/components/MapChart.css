@@ -1,7 +1,7 @@
 #map-container{
     position: relative;
     height: 100%;
-    width: 60%;
+    width: 70vw;
     margin: 0 auto;
     padding-top: 50px;
     padding-bottom: 50px;
@@ -10,4 +10,21 @@
 #message{
     text-align: center;
     font-size: 18px;
+}
+@media(max-width: 600px){
+    #message{
+        font-size:14px;
+    }
+    #btn{
+        padding: 8px;
+        font-size: 14px;
+    }
+    #map-container{
+        position: relative;
+        height: 100%;
+        width: 100vw;
+        margin: 0 auto;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
 }
