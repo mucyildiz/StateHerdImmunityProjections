@@ -48,12 +48,12 @@ const DataTable = (props) => {
 
             case header[2]:
                 setData('population', !inDescendingOrder.population);
-                setInDescendingOrder( {states: false, vaccinations: false, population: !setInDescendingOrder.population, percent: false, date: false });
+                setInDescendingOrder( {states: false, vaccinations: false, population: !inDescendingOrder.population, percent: false, date: false });
                 break;
 
             case header[3]:
                 setData('vaccinated', !inDescendingOrder.percent);
-                setInDescendingOrder( {states: false, vaccinations: false, population: false, percent: true, date: false });
+                setInDescendingOrder( {states: false, vaccinations: false, population: false, percent: !inDescendingOrder.percent, date: false });
                 break;
 
             case header[4]:
