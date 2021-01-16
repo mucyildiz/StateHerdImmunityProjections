@@ -9,9 +9,7 @@ const Methods = () => {
                     <div id='text'>
                         <h1>Methods</h1>
                         <p>
-                        The point of this project was to showcase my skills using React and various libraries. As such, the math behind
-                        the projections is not too complicated and should not be used as a point of reference to see when herd immunity
-                        will actually be achieved. We assume herd immunity is reached at 70% of the population (<a href="https://www.who.int/news-room/q-a-detail/herd-immunity-lockdowns-and-covid-19" target="_blank" rel="noopener noreferrer" style={{color: "black", fontWeight:"bold"}}>
+                        We assume herd immunity is reached at 70% of the population (<a href="https://www.who.int/news-room/q-a-detail/herd-immunity-lockdowns-and-covid-19" target="_blank" rel="noopener noreferrer" style={{color: "black", fontWeight:"bold"}}>
                         the real percentage is unknown</a>).
                         </p>
                         <p>
