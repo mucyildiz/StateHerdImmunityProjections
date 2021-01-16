@@ -21,7 +21,7 @@ const MapChart = (props) => {
           {props.showMap ? "View Table" : "View Map"}
         </Button>
       </div>
-      {props.showMap ?
+      {props.showMap &&
       <ComposableMap id="map" data-tip="" projection="geoAlbersUsa">
         <Geographies geography={geoUrl}>
         {({ geographies }) =>
@@ -57,7 +57,7 @@ const MapChart = (props) => {
         }
         </Geographies>
       </ComposableMap>
-      : ""}
+      }
     </div>
   );
 };

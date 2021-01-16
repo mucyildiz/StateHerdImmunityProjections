@@ -3,9 +3,15 @@
 svg {
     display: inline-block;
     vertical-align: middle;
-  }
+}
+
+
 
 #app{
   display: flex;
   flex-direction: column;
+}
+
+@media(max-width: 600px){
+  
 }

@@ -43,27 +43,27 @@ const DataTable = (props) => {
 
             case header[1]:
                 setData('doses-number', !inDescendingOrder.vaccinations)
-                setInDescendingOrder( {states: false, vaccinations: !inDescendingOrder.vaccinations, population: false, percent: false, date: false });
+                setInDescendingOrder({ ...inDescendingOrder, vaccinations: !inDescendingOrder.vaccinations });
                 break;
 
             case header[2]:
                 setData('population', !inDescendingOrder.population);
-                setInDescendingOrder( {states: false, vaccinations: false, population: !inDescendingOrder.population, percent: false, date: false });
+                setInDescendingOrder({ ...inDescendingOrder, population: !inDescendingOrder.population });
                 break;
 
             case header[3]:
                 setData('vaccinated', !inDescendingOrder.percent);
-                setInDescendingOrder( {states: false, vaccinations: false, population: false, percent: !inDescendingOrder.percent, date: false });
+                setInDescendingOrder({ ...inDescendingOrder, percent: !inDescendingOrder.percent });
                 break;
 
             case header[4]:
                 if(!inDescendingOrder.date){
                     setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => calculateImmunityDate(stateTwo).date - calculateImmunityDate(stateOne).date));
-                    setInDescendingOrder( {states: false, vaccinations: false, population: false, percent: false, date: true });
+                    setInDescendingOrder({ ...inDescendingOrder, date: true });
                 }
                 else{
                     setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => -1 * (calculateImmunityDate(stateTwo).date - calculateImmunityDate(stateOne).date)));
-                    setInDescendingOrder( {states: false, vaccinations: false, population: false, percent: false, date: false });
+                    setInDescendingOrder({ ...inDescendingOrder, date: false });
                 }
                 break;
 
@@ -74,7 +74,7 @@ const DataTable = (props) => {
                         const textB = stateTwo.state.toUpperCase();
                         return (textA < textB ? -1 : (textA > textB) ? 1: 0);
                     }));
-                    setInDescendingOrder( {states: true, vaccinations: false, population: false, percent: false, date: false });
+                    setInDescendingOrder({ ...inDescendingOrder, states: true });
                 }
                 else{
                     setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => {
@@ -82,7 +82,7 @@ const DataTable = (props) => {
                         const textB = stateTwo.state.toUpperCase();
                         return (textA > textB ? -1 : (textA < textB) ? 1: 0);
                     }));
-                    setInDescendingOrder( {states: false, vaccinations: false, population: false, percent: false, date: false });
+                    setInDescendingOrder({ ...inDescendingOrder, states: false });
                 }
                 break;
         }

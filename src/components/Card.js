@@ -19,7 +19,7 @@ const useStyles = makeStyles({
     fontSize: 28,
     textAlign: "center",
     fontWeight: 'bold',
-    color: "white"
+    color: "white",
   },
   pos: {
     marginBottom: 12,
