@@ -50,6 +50,9 @@ export default function OutlinedCard(props) {
 
   //https://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript
   const numberWithCommas = (x) => {
+    if(x === null || x === undefined){
+      return x;
+    }
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
@@ -65,12 +68,12 @@ export default function OutlinedCard(props) {
         <Grid container spacing={3} className={classes.statsContainer}>
             <Grid item xs={6} className={classes.stat}>
                 <Typography component="h3" style={{fontWeight: "bold"}}>
-                    Vaccinated {numberWithCommas(props.immunizationData['doses-number'])}
+                    Vaccinated {numberWithCommas(props.immunizationData['doses'])}
                 </Typography>
             </Grid>
             <Grid item xs={6} className={classes.stat}>
                 <Typography component="h3" style={{maxWidth: 100, fontWeight: "bold"}}>
-                    Population {props.immunizationData.population}
+                    Population {numberWithCommas(props.immunizationData.population)}
                 </Typography>
             </Grid>
             <Grid item xs={12} className={classes.stat}>
