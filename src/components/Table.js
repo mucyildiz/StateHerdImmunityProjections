@@ -42,7 +42,7 @@ const DataTable = (props) => {
         switch(property){
 
             case header[1]:
-                setData('doses-number', !inDescendingOrder.vaccinations)
+                setData('doses', !inDescendingOrder.vaccinations)
                 setInDescendingOrder({ ...inDescendingOrder, vaccinations: !inDescendingOrder.vaccinations });
                 break;
 
@@ -89,7 +89,7 @@ const DataTable = (props) => {
     }
 
     const calcPercentage = (state) => {
-        const x = state['doses-number'] / numberWithoutCommas(state.population);
+        const x = state['doses'] / numberWithoutCommas(state.population);
         return (parseFloat(x)*100).toFixed(2)+"%"
     }
 
@@ -112,7 +112,7 @@ const DataTable = (props) => {
                     return (
                         <tr key={i}>
                         <td>{state.state}</td>
-                        <td>{numberWithCommas(state['doses-number'])}</td>
+                        <td>{numberWithCommas(state['doses'])}</td>
                         <td>{state.population}</td>
                         <td>{calcPercentage(state)}</td>
                         <td>{calculateImmunityDate(state).stringDate}</td>
