@@ -5,7 +5,6 @@ const diff_weeks = (dt2, dt1) => {
 }
 
 export const calculateImmunityDate = (state) => {
-    console.log(state);
 
     // we account for the 95% immunity rate of the vaccine by multiplying the num of currentVaccinated and weeklyDoses by .95
     const currentVaccinated = Math.round(state['doses'] * .95);
