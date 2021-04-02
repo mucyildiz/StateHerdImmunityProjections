@@ -113,7 +113,7 @@ const DataTable = (props) => {
                         <tr key={i}>
                         <td>{state.state}</td>
                         <td>{numberWithCommas(state['doses'])}</td>
-                        <td>{state.population}</td>
+                        <td>{numberWithCommas(state.population)}</td>
                         <td>{calcPercentage(state)}</td>
                         <td>{calculateImmunityDate(state).stringDate}</td>
                         </tr>
