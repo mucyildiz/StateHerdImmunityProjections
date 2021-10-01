@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/StateHerdImmunityProjections/static/css/main.dc0f8117.chunk.css",
-    "main.js": "/StateHerdImmunityProjections/static/js/main.1757b0c8.chunk.js",
-    "main.js.map": "/StateHerdImmunityProjections/static/js/main.1757b0c8.chunk.js.map",
+    "main.js": "/StateHerdImmunityProjections/static/js/main.ccfb8c4e.chunk.js",
+    "main.js.map": "/StateHerdImmunityProjections/static/js/main.ccfb8c4e.chunk.js.map",
     "runtime-main.js": "/StateHerdImmunityProjections/static/js/runtime-main.88ab476e.js",
     "runtime-main.js.map": "/StateHerdImmunityProjections/static/js/runtime-main.88ab476e.js.map",
     "static/css/2.1f208231.chunk.css": "/StateHerdImmunityProjections/static/css/2.1f208231.chunk.css",
-    "static/js/2.8b333e5d.chunk.js": "/StateHerdImmunityProjections/static/js/2.8b333e5d.chunk.js",
-    "static/js/2.8b333e5d.chunk.js.map": "/StateHerdImmunityProjections/static/js/2.8b333e5d.chunk.js.map",
+    "static/js/2.61e2debe.chunk.js": "/StateHerdImmunityProjections/static/js/2.61e2debe.chunk.js",
+    "static/js/2.61e2debe.chunk.js.map": "/StateHerdImmunityProjections/static/js/2.61e2debe.chunk.js.map",
     "index.html": "/StateHerdImmunityProjections/index.html",
     "static/css/2.1f208231.chunk.css.map": "/StateHerdImmunityProjections/static/css/2.1f208231.chunk.css.map",
     "static/css/main.dc0f8117.chunk.css.map": "/StateHerdImmunityProjections/static/css/main.dc0f8117.chunk.css.map",
-    "static/js/2.8b333e5d.chunk.js.LICENSE.txt": "/StateHerdImmunityProjections/static/js/2.8b333e5d.chunk.js.LICENSE.txt"
+    "static/js/2.61e2debe.chunk.js.LICENSE.txt": "/StateHerdImmunityProjections/static/js/2.61e2debe.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.88ab476e.js",
     "static/css/2.1f208231.chunk.css",
-    "static/js/2.8b333e5d.chunk.js",
+    "static/js/2.61e2debe.chunk.js",
     "static/css/main.dc0f8117.chunk.css",
-    "static/js/main.1757b0c8.chunk.js"
+    "static/js/main.ccfb8c4e.chunk.js"
   ]
 }
