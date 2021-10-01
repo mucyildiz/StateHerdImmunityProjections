@@ -8,7 +8,7 @@ export const calculateImmunityDate = (state) => {
 
     // we account for the 95% immunity rate of the vaccine by multiplying the num of currentVaccinated and weeklyDoses by .95
     const currentVaccinated = Math.round(state['doses'] * .95);
-    const statePopulation = state.population;
+    const population = state.population;
     let weeklyDoses = Math.round(state['v-diff-7'] * .95);
 
     // to avoid dividing by 0, if no weekly doses were given (probably a data entry error) then we calculate avg weekly doses from dec. 21(week after first vaccine) til now
@@ -18,8 +18,6 @@ export const calculateImmunityDate = (state) => {
         const num_weeks = diff_weeks(now, firstVaccinationDate);
         weeklyDoses = currentVaccinated / num_weeks;
     }
-
-    const population = Number(statePopulation.replace(/,/g, ""));
 
     const herdImmunityNumber = population * .7;
     const remaining = herdImmunityNumber - currentVaccinated;
