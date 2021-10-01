@@ -7,11 +7,6 @@ const numberWithCommas = (x) => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-const numberWithoutCommas = (x) => {
-    return Number(x.replace(/,/g, ''));
-}
-
-
 const DataTable = (props) => {
     
     const [immunizationData, setImmunizationData ] = useState([]);
@@ -30,10 +25,10 @@ const DataTable = (props) => {
 
     const setData = (attribute, ascending) => {
         if(ascending){
-            setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => (numberWithoutCommas(stateTwo[attribute]) - numberWithoutCommas(stateOne[attribute]))));
+            setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => (stateTwo[attribute] - stateOne[attribute])));
         }
         else{
-            setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => -1 * (numberWithoutCommas(stateTwo[attribute]) - numberWithoutCommas(stateOne[attribute]))));
+            setImmunizationData([...immunizationData].sort((stateOne, stateTwo) => -1 * (stateTwo[attribute] - stateOne[attribute])));
         }
     }
 
@@ -89,7 +84,7 @@ const DataTable = (props) => {
     }
 
     const calcPercentage = (state) => {
-        const x = state['doses'] / numberWithoutCommas(state.population);
+        const x = state['doses'] / state.population;
         return (parseFloat(x)*100).toFixed(2)+"%"
     }
 
